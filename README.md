@@ -6,8 +6,6 @@
 
 ## Technologies
 
----
-
 I tried to use the minimun amount of dependencies as posible because I like to write code... :)
 
 - npm
@@ -19,8 +17,6 @@ I tried to use the minimun amount of dependencies as posible because I like to w
 _And I don't really think that I need more dependencies or modules_
 
 ## Setting Up The Project!
-
----
 
 To download and start the project you need to run the following commands:
 
@@ -43,8 +39,6 @@ npm install
 ```
 
 ## Commands Availables
-
----
 
 Once you've set up the project you're ready to run develop or test the game! Here there are different options.
 
@@ -74,8 +68,6 @@ Once you've set up the project you're ready to run develop or test the game! Her
 
 ## Deployment
 
----
-
 In case you're thinking about making a deployment you need to:
 
 1. Create a new build with all the changes you've done.
@@ -94,8 +86,6 @@ In case you're thinking about making a deployment you need to:
 
 ## Requeriments
 
----
-
 I'm not translating the whole _"Requerimientos"_ part I'm even minding if I should put it into this beautifull readme...
 
 - El juego estará desarrollado en HTML Canvas Graphics Juego
@@ -112,13 +102,9 @@ I'm not translating the whole _"Requerimientos"_ part I'm even minding if I shou
 
 ## License
 
----
-
 I don't feel important enought to even have a License so here are only my thoughts but I just copied the License.md from another project.
 
 ## Honorable mentions
-
----
 
 - Thanks to [@spritekitbook](https://github.com/spritekitbook/timberman-swift), the project I took the resources from.
 - Thanks to my mom who said that I can full-time work and study at the same time and now I'm losing my hair.
