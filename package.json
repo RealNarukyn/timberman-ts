@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "npm run build && parcel index.html",
+    "dev": "parcel index.dev.html",
+    "build": "rm -rf build && tsc",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "repository": {
