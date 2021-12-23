@@ -1,7 +1,7 @@
 ---
 name: Create Issue
 about: Create a new feature/issue to the project
-title: "[ Issue ]: TS-** / short-desc"
+title: "[ Issue ]: TM-** / short-desc"
 labels: ''
 assignees: RealNarukyn
 
