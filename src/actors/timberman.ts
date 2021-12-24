@@ -16,13 +16,7 @@ class Timberman {
     ctx.save();
 
     ctx.fillStyle = 'red';
-    ctx.lineWidth = 4;
-
-    const position = { x: this.position.x, y: this.position.y };
-    ctx.rect(position.x, position.y, 100, 100);
-
-    ctx.stroke();
-    ctx.fill();
+    ctx.fillRect(this.position.x, this.position.y, 100, 100);
 
     ctx.restore();
   }
