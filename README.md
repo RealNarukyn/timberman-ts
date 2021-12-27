@@ -42,16 +42,10 @@ npm install
 
 Once you've set up the project you're ready to run develop or test the game! Here there are different options.
 
-- Start the project with the build data _(removes build folder -> builds game -> starts build)_
+- Start the project _(runs typescript files)_
 
   ```bash
   npm start || npm run start
-  ```
-
-- Start the project in develop mode _(runs typescript files)_
-
-  ```bash
-  npm run dev
   ```
 
 - Build the game _(removes build folder -> builds game)_

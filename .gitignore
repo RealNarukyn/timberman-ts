@@ -39,5 +39,5 @@ dist/**/*
 
 # ignore yarn.lock
 yarn.lock
-
+.build/**/*
 .parcel-cache/**/*
