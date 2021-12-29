@@ -13,7 +13,7 @@ const getPointsArray = (
   return pointsHelper;
 };
 
-class GameManager {
+class MapManager {
   pointsWidth: number;
 
   points: Array<{ start: number; end: number }>;
@@ -28,8 +28,8 @@ class GameManager {
 }
 
 // eslint-disable-next-line import/no-mutable-exports
-export let Manager: GameManager;
+export let mapManager: MapManager;
 
-export const initGameManager = (canvasW: number) => {
-  Manager = new GameManager(canvasW);
+export const initMapManager = (canvasW: number) => {
+  mapManager = new MapManager(canvasW);
 };

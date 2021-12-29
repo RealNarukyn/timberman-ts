@@ -22,7 +22,7 @@ class WoodenLog {
     ctx.save();
 
     ctx.fillStyle = 'blue';
-    ctx.fillRect(this.position.x, this.position.y, 50, 50);
+    ctx.fillRect(this.position.x, this.position.y, 100, 100);
 
     ctx.restore();
   }

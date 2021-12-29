@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initGameManager = exports.Manager = void 0;
+exports.initMapManager = exports.mapManager = void 0;
 const getPointsArray = (pointsWidth) => {
     const pointsHelper = [];
     let start = 0;
@@ -11,14 +11,14 @@ const getPointsArray = (pointsWidth) => {
     }
     return pointsHelper;
 };
-class GameManager {
+class MapManager {
     constructor(canvasW = 800) {
         this.pointsWidth = canvasW / 5;
         const pointsHelper = getPointsArray(this.pointsWidth);
         this.points = pointsHelper;
     }
 }
-const initGameManager = (canvasW) => {
-    exports.Manager = new GameManager(canvasW);
+const initMapManager = (canvasW) => {
+    exports.mapManager = new MapManager(canvasW);
 };
-exports.initGameManager = initGameManager;
+exports.initMapManager = initMapManager;
