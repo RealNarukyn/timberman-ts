@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build && parcel index.html",
     "dev": "parcel index.html",
-    "build": "rm -rf build && tsc",
+    "build": "rm -rf dist && tsc",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "repository": {

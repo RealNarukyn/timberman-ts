@@ -30,7 +30,7 @@ window.onload = () => {
   for (let i = 0; i < 10; i++) {
     const wlPos: Position = {
       x: mapManager.points[2].start + mapManager.pointsWidth / 2,
-      y: canvas.height - 150 - i * 110
+      y: canvas.height - 150 - i * 105
     };
 
     woodenTree.push(new WoodenLog(wlPos, i === 0));
@@ -43,7 +43,7 @@ window.onload = () => {
     // -- Get Delta
     const delta = (time - lastFrame) / 1000;
     lastFrame = time;
-    // console.log(delta);
+    console.log(delta);
 
     // -- Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
