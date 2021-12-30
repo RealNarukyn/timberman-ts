@@ -10,7 +10,7 @@ class Timberman {
 
   constructor(positions: Array<Position>, keyboardMap: KeyboardMap) {
     this.positions = positions;
-    this.facing = facingENUM.LEFT;
+    this.facing = facingENUM.RIGHT;
     this.keyboardMap = keyboardMap;
   }
 
