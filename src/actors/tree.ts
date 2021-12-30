@@ -1,6 +1,8 @@
 import { mapManager } from '../managers/MapManager';
-import { Position } from '../types/positions';
+import { facingENUM, Position } from '../types/positions';
 import { Size } from '../types/sizes';
+import { KeyboardMap } from '../utils/keyboard-map';
+import Actor from './actor';
 import WoodenLog from './wooden-log';
 
 const createWoodenLogs = (
@@ -21,15 +23,40 @@ const createWoodenLogs = (
   return tree;
 };
 
-class Tree {
+class Tree extends Actor {
   woodenLogs: Array<WoodenLog>;
 
-  constructor(canvas: Size, numLogs: number = 10) {
+  keyboardMap: KeyboardMap;
+
+  constructor(canvas: Size, keyboardMap: KeyboardMap, numLogs: number = 10) {
+    super();
     this.woodenLogs = createWoodenLogs(canvas, numLogs);
+    this.keyboardMap = keyboardMap;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
     this.woodenLogs.forEach((e) => e.draw(ctx));
+  }
+
+  handleInputDOWN(key: string) {
+    const input = this.keyboardMap[key];
+
+    if (input === facingENUM.LEFT || input === facingENUM.RIGHT) {
+      // -- Remove First Element
+      this.woodenLogs.shift();
+
+      // -- Move all the [ Wooden Log ] Positions
+      this.woodenLogs.forEach((wl) => {
+        wl.position.y += wl.wlSize.height + 5;
+      });
+
+      // -- Add new [ Wooden Log ] to the tree at the last position
+      const wlPos: Position = {
+        x: mapManager.points[2].start + mapManager.pointsWidth / 2,
+        y: mapManager.canvasSize.height - 150 - 9 * 105
+      };
+      this.woodenLogs.push(new WoodenLog(wlPos));
+    }
   }
 }
 

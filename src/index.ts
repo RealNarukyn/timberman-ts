@@ -4,6 +4,7 @@ import { Position } from './types/positions';
 import { mapA } from './utils/keyboard-map';
 import Tree from './actors/tree';
 import { Size } from './types/sizes';
+import Actor from './actors/actor';
 
 window.onload = () => {
   const canvas = document.getElementById('canvas-game') as HTMLCanvasElement;
@@ -11,7 +12,7 @@ window.onload = () => {
   const canvasSize: Size = { width: canvas.width, height: canvas.height };
 
   // -- Init Managers
-  initMapManager(canvas.width);
+  initMapManager(canvasSize);
   console.log('The Map is divided horizontally in:', mapManager.points);
 
   // -- Init Actors
@@ -28,8 +29,10 @@ window.onload = () => {
   // #endregion
 
   // #region [ Wooden Tree ]
-  const tree: Tree = new Tree(canvasSize, 10);
+  const tree: Tree = new Tree(canvasSize, mapA, 10);
   // #endregion
+
+  const actors: Array<Actor> = [timberman, tree];
 
   // -- Render Loop
   let lastFrame = 0;
@@ -42,9 +45,8 @@ window.onload = () => {
     // -- Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // -- Draw Elements
-    timberman.draw(ctx);
-    tree.draw(ctx);
+    // -- Draw Section
+    actors.forEach((actor) => actor.draw(ctx));
 
     // -- Recurisve
     window.requestAnimationFrame(render);
@@ -55,6 +57,6 @@ window.onload = () => {
 
   // -- Add Event Listeners
   document.body.addEventListener('keydown', (event) => {
-    timberman.handleInputDOWN(event.key);
+    actors.forEach((actor) => actor.handleInputDOWN(event.key));
   });
 };

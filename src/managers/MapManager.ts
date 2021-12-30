@@ -1,3 +1,5 @@
+import { Size } from '../types/sizes';
+
 const getPointsArray = (
   pointsWidth: number
 ): Array<{ start: number; end: number }> => {
@@ -14,12 +16,15 @@ const getPointsArray = (
 };
 
 class MapManager {
+  canvasSize: Size;
+
   pointsWidth: number;
 
   points: Array<{ start: number; end: number }>;
 
-  constructor(canvasW: number = 800) {
-    this.pointsWidth = canvasW / 5;
+  constructor(canvasSize: Size) {
+    this.canvasSize = canvasSize;
+    this.pointsWidth = canvasSize.width / 5;
     const pointsHelper: Array<{ start: number; end: number }> = getPointsArray(
       this.pointsWidth
     );
@@ -30,6 +35,8 @@ class MapManager {
 // eslint-disable-next-line import/no-mutable-exports
 export let mapManager: MapManager;
 
-export const initMapManager = (canvasW: number) => {
-  mapManager = new MapManager(canvasW);
+export const initMapManager = (
+  canvasSize: Size = { width: 800, height: 900 }
+) => {
+  mapManager = new MapManager(canvasSize);
 };

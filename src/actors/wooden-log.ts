@@ -10,7 +10,7 @@ class WoodenLog {
 
   branchSize: Size;
 
-  constructor(position: Position, firstLog: boolean) {
+  constructor(position: Position, firstLog: boolean = false) {
     this.position = position;
     this.wlSize = { width: 100, height: 100 };
 
@@ -22,8 +22,6 @@ class WoodenLog {
     }
     this.branchSize = { width: 100, height: 30 };
   }
-
-  // update() {}
 
   draw(ctx: CanvasRenderingContext2D) {
     // -- Render Wooden Log
@@ -39,7 +37,7 @@ class WoodenLog {
 
     // -- Render Branch
     ctx.save();
-    ctx.fillStyle = 'brown';
+    ctx.fillStyle = 'green';
     const branchPos: number =
       this.branch === facingENUM.LEFT
         ? this.position.x - this.branchSize.width
@@ -52,8 +50,6 @@ class WoodenLog {
     );
     ctx.restore();
   }
-
-  // handleInput() {}
 }
 
 export default WoodenLog;

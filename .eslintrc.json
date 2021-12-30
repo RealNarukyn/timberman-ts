@@ -16,6 +16,7 @@
     "@typescript-eslint/no-shadow": ["error"],
     "no-console": "off",
     "no-plusplus": "off",
+    "no-param-reassign": 0,
     "prettier/prettier": 2 // Means error
   },
   "settings": {

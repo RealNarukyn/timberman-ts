@@ -1,7 +1,8 @@
 import { Position, facingENUM } from '../types/positions';
 import { KeyboardMap } from '../utils/keyboard-map';
+import Actor from './actor';
 
-class Timberman {
+class Timberman extends Actor {
   positions: Array<Position>;
 
   facing: facingENUM;
@@ -9,6 +10,7 @@ class Timberman {
   keyboardMap: KeyboardMap;
 
   constructor(positions: Array<Position>, keyboardMap: KeyboardMap) {
+    super();
     this.positions = positions;
     this.facing = facingENUM.RIGHT;
     this.keyboardMap = keyboardMap;
