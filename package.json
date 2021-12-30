@@ -1,12 +1,11 @@
 {
   "name": "timberman-ts",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "npm run build && parcel index.html",
     "dev": "parcel index.html",
-    "build": "rm -rf dist && tsc",
+    "build": "rm -rf docs dist && npm run ghbuild",
+    "ghbuild": "parcel build --dist-dir docs --public-url /timberman-ts index.html",
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
   },
   "repository": {
