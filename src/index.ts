@@ -1,12 +1,14 @@
 import { mapManager, initMapManager } from './managers/MapManager';
 import Timberman from './actors/timberman';
-import WoodenLog from './actors/wooden-log';
 import { Position } from './types/positions';
 import { mapA } from './utils/keyboard-map';
+import Tree from './actors/tree';
+import { Size } from './types/sizes';
 
 window.onload = () => {
   const canvas = document.getElementById('canvas-game') as HTMLCanvasElement;
   const ctx = canvas.getContext('2d') as CanvasRenderingContext2D;
+  const canvasSize: Size = { width: canvas.width, height: canvas.height };
 
   // -- Init Managers
   initMapManager(canvas.width);
@@ -26,15 +28,7 @@ window.onload = () => {
   // #endregion
 
   // #region [ Wooden Tree ]
-  const woodenTree: Array<WoodenLog> = [];
-  for (let i = 0; i < 10; i++) {
-    const wlPos: Position = {
-      x: mapManager.points[2].start + mapManager.pointsWidth / 2,
-      y: canvas.height - 150 - i * 105
-    };
-
-    woodenTree.push(new WoodenLog(wlPos, i === 0));
-  }
+  const tree: Tree = new Tree(canvasSize, 10);
   // #endregion
 
   // -- Render Loop
@@ -50,9 +44,7 @@ window.onload = () => {
 
     // -- Draw Elements
     timberman.draw(ctx);
-    woodenTree.forEach((e) => {
-      e.draw(ctx);
-    });
+    tree.draw(ctx);
 
     // -- Recurisve
     window.requestAnimationFrame(render);
