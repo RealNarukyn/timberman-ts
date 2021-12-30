@@ -4,9 +4,10 @@
   "scripts": {
     "start": "npm run build && parcel index.html",
     "dev": "parcel index.html",
-    "build": "rm -rf docs dist && npm run ghbuild",
+    "build": "npm run clean && npm run ghbuild",
     "ghbuild": "parcel build --dist-dir docs --public-url /timberman-ts index.html",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write"
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
+    "clean": "rm -rf docs dist .parcel-cache"
   },
   "repository": {
     "type": "git",

@@ -10,9 +10,9 @@ class WoodenLog {
 
   branchSize: Size;
 
-  constructor(position: Position, firstLog: boolean = false) {
+  constructor(position: Position, wlSize: Size, firstLog: boolean = false) {
     this.position = position;
-    this.wlSize = { width: 100, height: 100 };
+    this.wlSize = wlSize;
 
     if (firstLog) {
       this.branch = facingENUM.LEFT;

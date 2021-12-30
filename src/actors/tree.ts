@@ -12,12 +12,17 @@ const createWoodenLogs = (
   const tree: Array<WoodenLog> = [];
 
   for (let i = 0; i < numLogs; i++) {
+    const wlSize: Size = { width: 100, height: 100 };
+
+    const middlePosPoint =
+      mapManager.points[2].start + mapManager.pointsWidth / 2;
+
     const wlPos: Position = {
-      x: mapManager.points[2].start + mapManager.pointsWidth / 2,
+      x: middlePosPoint - wlSize.width / 2,
       y: canvas.height - 150 - i * 105
     };
 
-    tree.push(new WoodenLog(wlPos, i === 0));
+    tree.push(new WoodenLog(wlPos, wlSize, i === 0));
   }
 
   return tree;
@@ -51,11 +56,17 @@ class Tree extends Actor {
       });
 
       // -- Add new [ Wooden Log ] to the tree at the last position
+      const wlSize: Size = { width: 100, height: 100 };
+
+      const middlePosPoint =
+        mapManager.points[2].start + mapManager.pointsWidth / 2;
+
       const wlPos: Position = {
-        x: mapManager.points[2].start + mapManager.pointsWidth / 2,
+        x: middlePosPoint - wlSize.width / 2,
         y: mapManager.canvasSize.height - 150 - 9 * 105
       };
-      this.woodenLogs.push(new WoodenLog(wlPos));
+
+      this.woodenLogs.push(new WoodenLog(wlPos, wlSize));
     }
   }
 }
