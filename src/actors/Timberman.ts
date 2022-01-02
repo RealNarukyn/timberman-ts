@@ -2,7 +2,7 @@ import { mapManager } from '../managers/MapManager';
 import { Position, facingENUM } from '../types/positions';
 import { Size } from '../types/sizes';
 import { KeyboardMap } from '../utils/keyboard-map';
-import Actor from './actor';
+import Actor from './Actor';
 
 const createPositionsTM = (canvas: Size, tmSize: Size): Array<Position> => {
   // -- Left Point

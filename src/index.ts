@@ -1,10 +1,10 @@
 import { mapManager, initMapManager } from './managers/MapManager';
 import { gameManager, initGameManager } from './managers/GameManager';
-import Timberman from './actors/timberman';
+import Timberman from './actors/Timberman';
 import { mapA } from './utils/keyboard-map';
-import Tree from './actors/tree';
+import Tree from './actors/Tree';
 import { Size } from './types/sizes';
-import Actor from './actors/actor';
+import Actor from './actors/Actor';
 import { Player } from './types/player';
 
 window.onload = () => {

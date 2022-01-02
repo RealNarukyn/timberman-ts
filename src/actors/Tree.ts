@@ -2,8 +2,8 @@ import { mapManager } from '../managers/MapManager';
 import { facingENUM, Position } from '../types/positions';
 import { Size } from '../types/sizes';
 import { KeyboardMap } from '../utils/keyboard-map';
-import Actor from './actor';
-import WoodenLog from './wooden-log';
+import Actor from './Actor';
+import WoodenLog from './WoodenLog';
 
 const createWoodenLogs = (
   canvas: Size,
