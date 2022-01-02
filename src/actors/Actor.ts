@@ -4,7 +4,7 @@
 class Actor {
   update(): void {}
 
-  draw(ctx: CanvasRenderingContext2D): void {}
+  draw(ctx: CanvasRenderingContext2D, delta: number): void {}
 
   handleInputDOWN(key: string): void {}
 }

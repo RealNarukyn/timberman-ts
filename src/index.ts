@@ -6,6 +6,7 @@ import Tree from './actors/Tree';
 import { Size } from './types/sizes';
 import Actor from './actors/Actor';
 import { Player } from './types/player';
+import FPSViewer from './actors/FPSviewer';
 
 window.onload = () => {
   const canvas = document.getElementById('canvas-game') as HTMLCanvasElement;
@@ -17,6 +18,9 @@ window.onload = () => {
 
   // #region [ Init Actors ]
 
+  // -- FPS Viewer
+  const FPSviewer: FPSViewer = new FPSViewer({ x: 50, y: 50 });
+
   // -- Timberman
   const timberman: Timberman = new Timberman(canvasSize, mapA);
 
@@ -24,7 +28,7 @@ window.onload = () => {
   const tree: Tree = new Tree(canvasSize, mapA, 10);
   // #endregion
 
-  const actors: Array<Actor> = [timberman, tree];
+  const actors: Array<Actor> = [FPSviewer, timberman, tree];
 
   // [ Init Game Manager ]
   const players: Array<Player> = [
@@ -46,7 +50,7 @@ window.onload = () => {
 
     if (gameManager.isPlaying) {
       // -- Draw Section
-      actors.forEach((actor) => actor.draw(ctx));
+      actors.forEach((actor) => actor.draw(ctx, delta));
 
       // -- Check players positions
       gameManager.update();
