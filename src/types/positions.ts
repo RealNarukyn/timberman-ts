@@ -7,5 +7,7 @@ export enum facingENUM {
   // eslint-disable-next-line no-unused-vars
   LEFT,
   // eslint-disable-next-line no-unused-vars
-  RIGHT
+  RIGHT,
+  // eslint-disable-next-line no-unused-vars
+  NONE
 }

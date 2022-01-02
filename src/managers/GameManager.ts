@@ -12,6 +12,13 @@ class GameManager {
 
   update() {
     this.players.forEach((player: Player) => {
+      // -- Player arrives at 0 Health
+      if (player.timberman.health <= 0) {
+        this.isPlaying = false;
+        player.timberman.health = 0;
+      }
+
+      // -- Player Collides With Branch
       if (player.timberman.facing === player.tree.woodenLogs[0].branchFacing) {
         this.isPlaying = false;
       }

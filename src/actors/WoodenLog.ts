@@ -17,8 +17,10 @@ class WoodenLog {
     if (firstLog) {
       this.branchFacing = facingENUM.LEFT;
     } else {
-      const rand = Math.floor(Math.random() * 2) + 1;
-      this.branchFacing = rand === 1 ? facingENUM.LEFT : facingENUM.RIGHT;
+      const rand = Math.floor(Math.random() * 3) + 1;
+      if (rand === 1) this.branchFacing = facingENUM.LEFT;
+      else if (rand === 2) this.branchFacing = facingENUM.RIGHT;
+      else this.branchFacing = facingENUM.NONE;
     }
     this.branchSize = { width: 100, height: 30 };
   }
@@ -36,19 +38,22 @@ class WoodenLog {
     ctx.restore();
 
     // -- Render branchFacing
-    ctx.save();
-    ctx.fillStyle = 'green';
-    const branchPos: number =
-      this.branchFacing === facingENUM.LEFT
-        ? this.position.x - this.branchSize.width
-        : this.position.x + this.branchSize.width;
-    ctx.fillRect(
-      branchPos,
-      this.position.y,
-      this.branchSize.width,
-      this.branchSize.height
-    );
-    ctx.restore();
+    if (this.branchFacing !== facingENUM.NONE) {
+      ctx.save();
+      ctx.fillStyle = 'green';
+
+      const branchPos: number =
+        this.branchFacing === facingENUM.LEFT
+          ? this.position.x - this.branchSize.width
+          : this.position.x + this.branchSize.width;
+      ctx.fillRect(
+        branchPos,
+        this.position.y,
+        this.branchSize.width,
+        this.branchSize.height
+      );
+      ctx.restore();
+    }
   }
 }
 

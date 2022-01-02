@@ -2,7 +2,7 @@
 /* eslint-disable class-methods-use-this */
 
 class Actor {
-  update(): void {}
+  update(delta: number): void {}
 
   draw(ctx: CanvasRenderingContext2D, delta: number): void {}
 

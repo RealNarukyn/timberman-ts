@@ -4,6 +4,10 @@ import { Size } from '../types/sizes';
 import { KeyboardMap } from '../utils/keyboard-map';
 import Actor from './Actor';
 
+const HEALTH_DECRESEASE_SPEED: number = 16;
+const HEALTH_INCRESEASE_SPEED: number = 12;
+const HEALTH_BAR_HEIGHT: number = 20;
+
 const createPositionsTM = (canvas: Size, tmSize: Size): Array<Position> => {
   // -- Left Point
   let middlePosPoint = mapManager.points[1].start + mapManager.pointsWidth / 2;
@@ -31,6 +35,8 @@ class Timberman extends Actor {
 
   keyboardMap: KeyboardMap;
 
+  health: number;
+
   constructor(canvasSize: Size, keyboardMap: KeyboardMap) {
     super();
 
@@ -41,11 +47,19 @@ class Timberman extends Actor {
     this.facing = facingENUM.RIGHT;
 
     this.keyboardMap = keyboardMap;
+
+    this.health = 100;
   }
 
-  // update() {}
+  update(delta: number) {
+    if (this.health > 100) this.health = 100;
+    if (this.health < 0) this.health = 0;
+
+    this.health -= HEALTH_DECRESEASE_SPEED * delta;
+  }
 
   draw(ctx: CanvasRenderingContext2D) {
+    // #region [ Draw Timberman ]
     ctx.save();
 
     ctx.fillStyle = 'red';
@@ -61,13 +75,33 @@ class Timberman extends Actor {
     );
 
     ctx.restore();
+    // #endregion
+
+    // #region [ Draw Healthbar ]
+    ctx.save();
+    ctx.fillStyle = 'orange';
+    ctx.fillRect(
+      curPosition.x,
+      curPosition.y - (HEALTH_BAR_HEIGHT + 10),
+      this.health,
+      HEALTH_BAR_HEIGHT
+    );
+    ctx.restore();
+    // #endregion
   }
 
   handleInputDOWN(key: string) {
     const input = this.keyboardMap[key];
 
-    if (input === facingENUM.LEFT) this.facing = facingENUM.LEFT;
-    if (input === facingENUM.RIGHT) this.facing = facingENUM.RIGHT;
+    if (input === facingENUM.LEFT) {
+      this.facing = facingENUM.LEFT;
+      this.health += HEALTH_INCRESEASE_SPEED * 0.2;
+    }
+
+    if (input === facingENUM.RIGHT) {
+      this.facing = facingENUM.RIGHT;
+      this.health += HEALTH_INCRESEASE_SPEED * 0.2;
+    }
   }
 }
 

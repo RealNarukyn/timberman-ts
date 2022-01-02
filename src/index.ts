@@ -43,14 +43,19 @@ window.onload = () => {
     // -- Get Delta
     const delta = (time - lastFrame) / 1000;
     lastFrame = time;
-    // console.log(delta);
 
     // -- Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (gameManager.isPlaying) {
-      // -- Draw Section
-      actors.forEach((actor) => actor.draw(ctx, delta));
+      // -- Actors Actions
+      actors.forEach((actor) => {
+        // -- Draw Section
+        actor.draw(ctx, delta);
+
+        // -- Update Player Health
+        actor.update(delta);
+      });
 
       // -- Check players positions
       gameManager.update();
@@ -58,7 +63,11 @@ window.onload = () => {
       // -- Game Over Message
       ctx.font = '15px Arial';
       ctx.fillStyle = 'black';
-      ctx.fillText(`Game Over...`, canvasSize.width / 2, canvasSize.height / 2);
+      ctx.fillText(
+        `Game Over...`,
+        canvasSize.width / 2 - 25,
+        canvasSize.height / 2 - 25
+      );
     }
 
     // -- Recurisve
