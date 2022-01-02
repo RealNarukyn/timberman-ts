@@ -44,11 +44,18 @@ window.onload = () => {
     // -- Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // -- Draw Section
-    actors.forEach((actor) => actor.draw(ctx));
+    if (gameManager.isPlaying) {
+      // -- Draw Section
+      actors.forEach((actor) => actor.draw(ctx));
 
-    // -- Check players status
-    gameManager.update();
+      // -- Check players positions
+      gameManager.update();
+    } else {
+      // -- Game Over Message
+      ctx.font = '15px Arial';
+      ctx.fillStyle = 'black';
+      ctx.fillText(`Game Over...`, canvasSize.width / 2, canvasSize.height / 2);
+    }
 
     // -- Recurisve
     window.requestAnimationFrame(render);
@@ -59,6 +66,8 @@ window.onload = () => {
 
   // -- Add Event Listeners
   document.body.addEventListener('keydown', (event) => {
-    actors.forEach((actor) => actor.handleInputDOWN(event.key));
+    if (gameManager.isPlaying) {
+      actors.forEach((actor) => actor.handleInputDOWN(event.key));
+    }
   });
 };
