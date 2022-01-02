@@ -4,7 +4,7 @@ import { Size } from '../types/sizes';
 class WoodenLog {
   position: Position;
 
-  branch: facingENUM;
+  branchFacing: facingENUM;
 
   wlSize: Size;
 
@@ -15,10 +15,10 @@ class WoodenLog {
     this.wlSize = wlSize;
 
     if (firstLog) {
-      this.branch = facingENUM.LEFT;
+      this.branchFacing = facingENUM.LEFT;
     } else {
       const rand = Math.floor(Math.random() * 2) + 1;
-      this.branch = rand === 1 ? facingENUM.LEFT : facingENUM.RIGHT;
+      this.branchFacing = rand === 1 ? facingENUM.LEFT : facingENUM.RIGHT;
     }
     this.branchSize = { width: 100, height: 30 };
   }
@@ -35,11 +35,11 @@ class WoodenLog {
     );
     ctx.restore();
 
-    // -- Render Branch
+    // -- Render branchFacing
     ctx.save();
     ctx.fillStyle = 'green';
     const branchPos: number =
-      this.branch === facingENUM.LEFT
+      this.branchFacing === facingENUM.LEFT
         ? this.position.x - this.branchSize.width
         : this.position.x + this.branchSize.width;
     ctx.fillRect(
