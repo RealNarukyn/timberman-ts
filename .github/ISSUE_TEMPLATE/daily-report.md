@@ -1,7 +1,7 @@
 ---
 name: Daily Report
 about: Daily report about what I've worked on today
-title: "[ Report ]: dd-MM-yyyy"
+title: "[ Report ]: 0x-01-2022"
 labels: report
 assignees: RealNarukyn
 
