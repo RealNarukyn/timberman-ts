@@ -4,10 +4,10 @@
   "scripts": {
     "start": "npm run build && parcel index.html",
     "dev": "parcel index.html",
+    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "build": "npm run clean && npm run ghbuild",
     "ghbuild": "parcel build --dist-dir docs --public-url /timberman-ts index.html",
-    "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
-    "clean": "rm -rf docs dist .parcel-cache"
+    "clean": "rimraf docs dist"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/RealNarukyn/timberman-ts#readme",
   "dependencies": {
-    "parcel": "^2.0.1"
+    "parcel": "^2.0.1",
+    "rimraf": "^3.0.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.8.0",
