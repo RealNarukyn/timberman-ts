@@ -6,7 +6,6 @@ import Actor from './Actor';
 
 const HEALTH_DECRESEASE_SPEED: number = 16;
 const HEALTH_INCRESEASE_SPEED: number = 12;
-const HEALTH_BAR_HEIGHT: number = 20;
 
 const createPositionsTM = (canvas: Size, tmSize: Size): Array<Position> => {
   // -- Left Point
@@ -37,18 +36,33 @@ class Timberman extends Actor {
 
   health: number;
 
-  constructor(canvasSize: Size, keyboardMap: KeyboardMap) {
+  points: number;
+
+  healthBarPos: Position;
+
+  healthBarSize: Size;
+
+  pointsPosition: Position;
+
+  pointsSize: Size;
+
+  constructor(
+    canvasSize: Size,
+    healthPos: Position,
+    pointsPos: Position,
+    keyboardMap: KeyboardMap
+  ) {
     super();
-
     this.tmSize = { width: 100, height: 100 };
-
     this.positions = createPositionsTM(canvasSize, this.tmSize);
-
     this.facing = facingENUM.RIGHT;
-
     this.keyboardMap = keyboardMap;
-
     this.health = 100;
+    this.points = 0;
+    this.healthBarPos = healthPos;
+    this.healthBarSize = { width: this.health, height: 30 };
+    this.pointsPosition = pointsPos;
+    this.pointsSize = { width: 30, height: 40 };
   }
 
   update(delta: number) {
@@ -59,13 +73,12 @@ class Timberman extends Actor {
   }
 
   draw(ctx: CanvasRenderingContext2D) {
-    // #region [ Draw Timberman ]
+    const curPosition: Position =
+      this.facing === facingENUM.LEFT ? this.positions[0] : this.positions[1];
+
     ctx.save();
 
     ctx.fillStyle = 'red';
-
-    const curPosition: Position =
-      this.facing === facingENUM.LEFT ? this.positions[0] : this.positions[1];
 
     ctx.fillRect(
       curPosition.x,
@@ -75,19 +88,6 @@ class Timberman extends Actor {
     );
 
     ctx.restore();
-    // #endregion
-
-    // #region [ Draw Healthbar ]
-    ctx.save();
-    ctx.fillStyle = 'orange';
-    ctx.fillRect(
-      curPosition.x,
-      curPosition.y - (HEALTH_BAR_HEIGHT + 10),
-      this.health,
-      HEALTH_BAR_HEIGHT
-    );
-    ctx.restore();
-    // #endregion
   }
 
   handleInputDOWN(key: string) {
@@ -96,11 +96,13 @@ class Timberman extends Actor {
     if (input === facingENUM.LEFT) {
       this.facing = facingENUM.LEFT;
       this.health += HEALTH_INCRESEASE_SPEED * 0.2;
+      this.points++;
     }
 
     if (input === facingENUM.RIGHT) {
       this.facing = facingENUM.RIGHT;
       this.health += HEALTH_INCRESEASE_SPEED * 0.2;
+      this.points++;
     }
   }
 }

@@ -22,7 +22,12 @@ window.onload = () => {
   const FPSviewer: FPSViewer = new FPSViewer({ x: 50, y: 50 });
 
   // -- Timberman
-  const timberman: Timberman = new Timberman(canvasSize, mapA);
+  const timberman: Timberman = new Timberman(
+    canvasSize,
+    { x: 50, y: 100 },
+    { x: 50, y: 145 },
+    mapA
+  );
 
   // -- Wooden Tree
   const tree: Tree = new Tree(canvasSize, mapA, 10);
@@ -51,6 +56,9 @@ window.onload = () => {
     mapManager.draw(ctx);
 
     if (gameManager.isPlaying) {
+      // -- Draw Actors Info
+      gameManager.draw(ctx);
+
       // -- Actors Actions
       actors.forEach((actor) => {
         // -- Draw Section
@@ -68,7 +76,7 @@ window.onload = () => {
       ctx.fillStyle = 'black';
       ctx.fillText(
         `Game Over...`,
-        canvasSize.width / 2 - 25,
+        canvasSize.width / 2 - 50,
         canvasSize.height / 2 - 25
       );
     }
