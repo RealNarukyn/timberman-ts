@@ -47,6 +47,9 @@ window.onload = () => {
     // -- Clear the canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // -- Draw Background
+    mapManager.draw(ctx);
+
     if (gameManager.isPlaying) {
       // -- Actors Actions
       actors.forEach((actor) => {

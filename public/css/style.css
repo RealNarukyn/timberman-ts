@@ -1,6 +1,12 @@
 body {
   max-width: 100vw;
   max-height: 100vh;
+
+  background-image: url('../img/timberman-front-page.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 #canvas-pos {
@@ -11,5 +17,5 @@ body {
 }
 
 #canvas-game {
-  border: 1px solid red;
+  border: 6px solid #2f6367;
 }

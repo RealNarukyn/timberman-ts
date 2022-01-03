@@ -1,5 +1,7 @@
 import { Size } from '../types/sizes';
 
+const background = require('../../public/GameResources/img/background.png');
+
 const getPointsArray = (
   pointsWidth: number
 ): Array<{ start: number; end: number }> => {
@@ -22,6 +24,8 @@ class MapManager {
 
   points: Array<{ start: number; end: number }>;
 
+  backgroundImg: HTMLImageElement;
+
   constructor(canvasSize: Size) {
     this.canvasSize = canvasSize;
     this.pointsWidth = canvasSize.width / 5;
@@ -29,6 +33,19 @@ class MapManager {
       this.pointsWidth
     );
     this.points = pointsHelper;
+
+    this.backgroundImg = new Image();
+    this.backgroundImg.src = background;
+  }
+
+  draw(ctx: CanvasRenderingContext2D) {
+    ctx.drawImage(
+      this.backgroundImg,
+      0,
+      0,
+      this.canvasSize.width,
+      this.canvasSize.height
+    );
   }
 }
 
