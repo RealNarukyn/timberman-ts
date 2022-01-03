@@ -102,5 +102,6 @@ I don't feel important enought to even have a License so here are only my though
 
 ## Honorable mentions
 
-- Thanks to [@spritekitbook](https://github.com/spritekitbook/timberman-swift), the project I took the resources from.
+- Thanks to [@spritekitbook](https://github.com/spritekitbook/timberman-swift), the project I took the app icon resource from.
+- Thanks to [soluka.fr](https://soluka.fr/blog/archives/phaser-2-creer-timberman-en-html5-canvas/), the webpage I took the game resources such as sprites and sounds from.
 - Thanks to my mom who said that I can full-time work and study at the same time and now I'm losing my hair.
