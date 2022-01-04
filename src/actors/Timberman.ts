@@ -141,16 +141,12 @@ class Timberman extends Actor {
         this.tmSize.height
       );
 
-      if (this.facing === facingENUM.RIGHT) {
-        ctx.scale(1, -1);
-      }
-
-      ctx.restore();
-
       this.time += delta;
       this.animationCount =
         Math.floor(this.time * NUM_SPRITES * 5) % NUM_SPRITES;
     }
+
+    ctx.restore();
   }
 
   handleInputDOWN(key: string) {
