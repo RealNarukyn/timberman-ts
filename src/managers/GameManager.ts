@@ -22,7 +22,7 @@ class GameManager {
     this.players.forEach((player: Player) => {
       // -- Player arrives at 0 Health
       if (player.timberman.health <= 0) {
-        this.isPlaying = false;
+        // this.isPlaying = false;
         player.timberman.health = 0;
       }
 

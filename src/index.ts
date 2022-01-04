@@ -24,8 +24,8 @@ window.onload = () => {
   // -- Timberman
   const timberman: Timberman = new Timberman(
     canvasSize,
-    { x: 50, y: 100 },
-    { x: 50, y: 145 },
+    { x: 50, y: 100 }, // Health Bar Position
+    { x: 50, y: 145 }, // Points Position
     mapA
   );
 

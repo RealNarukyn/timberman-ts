@@ -18,14 +18,14 @@ const createPositionsTM = (canvas: Size, tmSize: Size): Array<Position> => {
   let middlePosPoint = mapManager.points[1].start + mapManager.pointsWidth / 2;
   const tmPosLeft: Position = {
     x: middlePosPoint - tmSize.width / 2,
-    y: canvas.height - 100 - tmSize.height / 2
+    y: canvas.height - 150 - tmSize.height / 2
   };
 
   // -- Right Point
   middlePosPoint = mapManager.points[3].start + mapManager.pointsWidth / 2;
   const tmPosRight: Position = {
     x: middlePosPoint - tmSize.width / 2,
-    y: canvas.height - 100 - tmSize.height / 2
+    y: canvas.height - 150 - tmSize.height / 2
   };
 
   return [tmPosLeft, tmPosRight];
@@ -69,7 +69,7 @@ class Timberman extends Actor {
     keyboardMap: KeyboardMap
   ) {
     super();
-    this.tmSize = { width: 200, height: 150 };
+    this.tmSize = { width: 250, height: 200 };
     this.positions = createPositionsTM(canvasSize, this.tmSize);
     this.facing = facingENUM.RIGHT;
     this.keyboardMap = keyboardMap;
