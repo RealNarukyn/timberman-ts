@@ -94,4 +94,10 @@ window.onload = () => {
       actors.forEach((actor) => actor.handleInputDOWN(event.key));
     }
   });
+
+  document.body.addEventListener('keyup', (event) => {
+    if (gameManager.isPlaying) {
+      actors.forEach((actor) => actor.handleInputUP(event.key));
+    }
+  });
 };

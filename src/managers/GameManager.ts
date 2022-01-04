@@ -1,5 +1,5 @@
 import { Player } from '../types/player';
-import numFrames from '../utils/numbers-frames';
+import { framesNumbers } from '../utils/numbers-frames';
 
 const numbers = require('../../public/GameResources/img/numbers.png');
 
@@ -49,40 +49,25 @@ class GameManager {
 
       // #region [ Draw Timberman Points ]
       const strPoints: string[] = player.timberman.points.toString().split('');
-      if (strPoints.length === 1) {
+      strPoints.forEach((e, index) => {
         const curNumber: { x: number; y: number; w: number; h: number } =
-          numFrames[`number0${player.timberman.points.toString()}`];
+          framesNumbers[`number${e}`];
 
+        ctx.save();
         ctx.drawImage(
           this.pointsImage,
           curNumber.x,
           curNumber.y,
           curNumber.w,
           curNumber.h,
-          player.timberman.pointsPosition.x,
+          player.timberman.pointsPosition.x +
+            index * player.timberman.pointsSize.width,
           player.timberman.pointsPosition.y,
           player.timberman.pointsSize.width,
           player.timberman.pointsSize.height
         );
-      } else {
-        strPoints.forEach((e, index) => {
-          const curNumber: { x: number; y: number; w: number; h: number } =
-            numFrames[`number0${e}`];
-
-          ctx.drawImage(
-            this.pointsImage,
-            curNumber.x,
-            curNumber.y,
-            curNumber.w,
-            curNumber.h,
-            player.timberman.pointsPosition.x +
-              index * player.timberman.pointsSize.width,
-            player.timberman.pointsPosition.y,
-            player.timberman.pointsSize.width,
-            player.timberman.pointsSize.height
-          );
-        });
-      }
+        ctx.restore();
+      });
       // #endregion
     });
   }

@@ -1,18 +1,21 @@
-export interface NumberFrame {
-  [key: string]: { x: number; y: number; w: number; h: number };
-}
+import { NumberFrame } from '../types/numberFrames';
 
-const numFrames: NumberFrame = {
-  number00: { x: 5, y: 5, w: 66, h: 91 },
-  number01: { x: 81, y: 5, w: 50, h: 91 },
-  number02: { x: 141, y: 5, w: 66, h: 91 },
-  number03: { x: 217, y: 5, w: 66, h: 91 },
-  number04: { x: 293, y: 5, w: 66, h: 91 },
-  number05: { x: 369, y: 5, w: 66, h: 91 },
-  number06: { x: 445, y: 5, w: 66, h: 91 },
-  number07: { x: 521, y: 5, w: 66, h: 91 },
-  number08: { x: 597, y: 5, w: 66, h: 91 },
-  number09: { x: 673, y: 5, w: 66, h: 91 }
+export const framesNumbers: NumberFrame = {
+  number0: { x: 5, y: 5, w: 66, h: 91 },
+  number1: { x: 81, y: 5, w: 50, h: 91 },
+  number2: { x: 141, y: 5, w: 66, h: 91 },
+  number3: { x: 217, y: 5, w: 66, h: 91 },
+  number4: { x: 293, y: 5, w: 66, h: 91 },
+  number5: { x: 369, y: 5, w: 66, h: 91 },
+  number6: { x: 445, y: 5, w: 66, h: 91 },
+  number7: { x: 521, y: 5, w: 66, h: 91 },
+  number8: { x: 597, y: 5, w: 66, h: 91 },
+  number9: { x: 673, y: 5, w: 66, h: 91 }
 };
 
-export default numFrames;
+export const framesTimberman: NumberFrame = {
+  breath0: { x: 1059, y: 5, w: 517, h: 403 }, // Breath 1
+  breath1: { x: 1586, y: 5, w: 517, h: 403 }, // Breath 2
+  chop0: { x: 5, y: 5, w: 517, h: 403 }, // Chop 1
+  chop1: { x: 532, y: 5, w: 517, h: 403 } // Chop 2
+};
