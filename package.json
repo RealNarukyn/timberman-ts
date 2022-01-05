@@ -7,7 +7,7 @@
     "prettier-format": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "build": "npm run clean && npm run ghbuild",
     "ghbuild": "parcel build --dist-dir docs --public-url /timberman-ts index.html",
-    "clean": "rimraf docs dist"
+    "clean": "rimraf docs dist .parcel-cache"
   },
   "repository": {
     "type": "git",

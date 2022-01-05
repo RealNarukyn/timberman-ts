@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'PixelGameFont';
+  src: url('../GameResources/fonts/PixelGameFont.ttf');
+}
+
 body {
   max-width: 100vw;
   max-height: 100vh;

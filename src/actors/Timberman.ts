@@ -9,8 +9,8 @@ import { TimbermanStatus } from '../utils/player-status';
 const timbermanSprites = require('../../public/GameResources/img/man.png');
 const timbermanRIPSprite = require('../../public/GameResources/img/rip.png');
 
-const HEALTH_DECRESEASE_SPEED: number = 16;
-const HEALTH_INCRESEASE_SPEED: number = 12;
+const HEALTH_DECRESEASE_SPEED: number = 20;
+const HEALTH_INCRESEASE_SPEED: number = 10;
 const NUM_SPRITES = 2;
 
 const createPositionsTM = (canvas: Size, tmSize: Size): Array<Position> => {

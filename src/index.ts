@@ -72,13 +72,7 @@ window.onload = () => {
       gameManager.update();
     } else {
       // -- Game Over Message
-      ctx.font = '15px Arial';
-      ctx.fillStyle = 'black';
-      ctx.fillText(
-        `Game Over...`,
-        canvasSize.width / 2 - 50,
-        canvasSize.height / 2 - 25
-      );
+      gameManager.drawGameOver(ctx);
     }
 
     // -- Recurisve

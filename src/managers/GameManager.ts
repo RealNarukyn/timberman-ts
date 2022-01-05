@@ -1,5 +1,6 @@
 import { Player } from '../types/player';
 import { framesNumbers } from '../utils/numbers-frames';
+import { mapManager } from './MapManager';
 
 const numbers = require('../../public/GameResources/img/numbers.png');
 
@@ -22,7 +23,7 @@ class GameManager {
     this.players.forEach((player: Player) => {
       // -- Player arrives at 0 Health
       if (player.timberman.health <= 0) {
-        // this.isPlaying = false;
+        this.isPlaying = false;
         player.timberman.health = 0;
       }
 
@@ -70,6 +71,59 @@ class GameManager {
       });
       // #endregion
     });
+  }
+
+  drawGameOver(ctx: CanvasRenderingContext2D) {
+    const player = this.players[0];
+
+    // -- Dead Player Sprite
+    ctx.save();
+    ctx.drawImage(
+      player.timberman.timbermanDeadImage,
+      mapManager.canvasSize.width / 2 - 125,
+      mapManager.canvasSize.height - (player.timberman.tmSize.height + 70),
+      player.timberman.tmSize.width,
+      player.timberman.tmSize.height
+    );
+    ctx.restore();
+
+    // -- Player Points
+    ctx.save();
+
+    const strPoints: string[] = player.timberman.points.toString().split('');
+
+    strPoints.forEach((e, index) => {
+      const curNumber: { x: number; y: number; w: number; h: number } =
+        framesNumbers[`number${e}`];
+
+      ctx.save();
+      ctx.drawImage(
+        this.pointsImage,
+        curNumber.x,
+        curNumber.y,
+        curNumber.w,
+        curNumber.h,
+        mapManager.canvasSize.width / 2 -
+          50 +
+          index * player.timberman.pointsSize.width,
+        mapManager.canvasSize.height / 2 - 100,
+        player.timberman.pointsSize.width,
+        player.timberman.pointsSize.height
+      );
+      ctx.restore();
+    });
+    ctx.restore();
+
+    // -- Game Over Text
+    ctx.save();
+    ctx.font = '68px PixelGameFont';
+    ctx.fillStyle = 'black';
+    ctx.fillText(
+      `GAME OVER...`,
+      mapManager.canvasSize.width / 2 - 220,
+      mapManager.canvasSize.height / 2 - 124
+    );
+    ctx.restore();
   }
 }
 
