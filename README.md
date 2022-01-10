@@ -8,11 +8,12 @@
 
 I tried to use the minimun amount of dependencies as posible because I like to write code... :)
 
-- npm
+- npm (supporter)
 - Typescript
 - Eslint
 - Prettier
 - Parcel
+- Rimraf
 
 _And I don't really think that I need more dependencies or modules_
 
@@ -42,13 +43,31 @@ npm install
 
 Once you've set up the project you're ready to run develop or test the game! Here there are different options.
 
-- Start the project _(runs typescript files)_
+- Start the project _(build the game and runs index.html)_
 
   ```bash
   npm start || npm run start
   ```
+  
+- Start the project in dev mode _(runs typescript files)_
 
-- Build the game _(removes build folder -> builds game)_
+  ```bash
+  npm run dev
+  ```
+  
+- Clean the old files _(removes docs, dist and .parcel-cache directories)_
+
+  ```bash
+  npm run clean
+  ```
+  
+- Creates a build prepared to be loaded in GitHub Pages
+
+  ```bash
+  npm run ghbuild
+  ```
+  
+- Build the game _(removes build folder -> builds game with ghbuild)_
 
   ```bash
   npm run build
@@ -80,25 +99,9 @@ In case you're thinking about making a deployment you need to:
 
 6. If everything went right you can check your changes [here](https://realnarukyn.github.io/timberman-ts/)!
 
-## Requeriments
-
-I'm not translating the whole _"Requerimientos"_ part I'm even minding if I should put it into this beautifull readme...
-
-- El juego estará desarrollado en HTML Canvas Graphics Juego
-- Trabajaremos sobre un entorno de Node.js
-- Deberemos incluir las instrucciones o descripción del objetivo del juego
-- El 50% de nuestros ficheros, mínimo, estarán en formato Typescript
-- Está permitido el uso de librerias de utilidades como: lodash, ramda, luxon o momentjs
-- El usuario debe poder interactuar con el juego mediante la detección de acciones sobre las teclas del teclado
-- El juego debe poseer un indicador de rendimiento en frames por segundo
-- Se mantendrá en todo momento un ratio de 60fps/seg
-- Quedará registrado un evento durante el flujo normal del juego en el momento en que dos o más actores colisionen
-- Entregar el juego en github pages <usuario>.github.io/<repositorio>
-- Desplegar el juego en github pages compilandolo con parcel
-
 ## License
 
-I don't feel important enought to even have a License so here are only my thoughts but I just copied the License.md from another project.
+I just copied the License.md from the project I took the resources from.
 
 ## Honorable mentions
 
