@@ -89,7 +89,9 @@ In case you're thinking about making a deployment you need to:
 
 2. If you were working in a different branch from main _(well done✔️✔️)_ merge the changes to the main branch.
 
-   In case you were working directly on the main branch _(baad!!❌❌)_ you're a psycho killer, a sith, a very very bad person, the worst of your kind... But anyway ![it is what it is](./public/gifs/whatitis.gif)
+   In case you were working directly on the main branch _(baad!!❌❌)_ you're a psycho killer, a sith, a very very bad person, the worst of your kind... But anyway 
+   
+   ![it is what it is](./public/gifs/whatitis.gif)
 
 3. Do a push from your local main branch to the remote.
 
